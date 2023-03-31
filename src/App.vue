@@ -1,47 +1,38 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref } from 'vue'
+const nome = ref('')
+const texto = ref('')
+const aceita = ref(false)
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <div class="info">
+      <p>Nome:</p>
+      <input type="text" v-model="nome"/>
+      <p>idade:</p>
+      <input type="number" v-model="idade" max="2"/>
+      <p>email:</p>
+      <input type="email" v-model="email"/>
+      <p>.</p>
+      <button>Enviar</button>
+      <p>aceita os termos:</p>
+      <label for="aceita">Aceito os termos</label>
+      
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
+
 <style scoped>
-header {
-  line-height: 1.5;
+.info {
+  background-color: rgba(35,12,22,1);
+  padding: 20px 30px;
+  color: rgb(183, 210, 219);
+  border-radius: 10px;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
 }
 </style>
