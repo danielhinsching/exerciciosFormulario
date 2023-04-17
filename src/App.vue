@@ -12,10 +12,6 @@ const hobbies = ref('')
 const linguagemProg = ref('')
 const biografia = ref('')
 const aceitar = ref(false)
-
-function enviar() {
-  aceitar.value = !aceitar.value
-}
 </script>
 
 <template>
@@ -71,11 +67,20 @@ function enviar() {
       <p>biografia:</p>
       <input type="text" v-model="biografia">
       <hr>
-      <button type="submit">Enviar</button>
-  
-  <p>Aceita os termos: </p>
+      <button type="submit" @click="aceitar = !aceitar">Enviar</button>
     </form>
-  
+  <div v-if="aceitar" id="div">
+<p>{{ nome }}</p>
+<p>{{ email }}</p>
+<p>{{ senha }}</p>
+<p>{{ data }}</p>
+<p>{{ endereço }}</p>
+<p>{{ cidade }}</p>
+<p>{{ estado }}</p>
+<p>{{ hobbies }}</p>
+<p>{{ linguagemProg }}</p>
+<p>{{ biografia }}</p>
+  </div>
 </template>
 
 
@@ -91,5 +96,14 @@ h1 {
   color: white;
   font-weight: bold;
   font-size: 1.5em;
+}
+#div {
+  background-color: rgba(35,12,22,1);
+  padding: 20px 30px;
+  color: rgb(183, 210, 219);
+  border-radius: 10px;
+  text-align: center;
+  margin: 0px 0px 0px 50px;
+  height: fit-content;
 }
 </style>
