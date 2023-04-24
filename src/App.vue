@@ -17,20 +17,20 @@ const aceitar = ref(false)
 <template>
     <form class="info" @submit.prevent="enviar()">
       <p>Nome:</p>
-      <input type="text" v-model="nome" minlength="3" maxlength="20"/>
-      <p>email:</p>
-      <input type="email" v-model="email"/>
-      <p>senha:</p>
-      <input type="password" v-model="senha">
-      <p>confirmar senha:</p>
-      <input type="password" v-model="confirmaSenha">
-      <p>data de nascimento:</p>
+      <input type="text" v-model="nome" minlength="3" maxlength="20" placeholder="Nome"/>
+      <p>Email:</p>
+      <input type="email" v-model="email" placeholder="Email"/>
+      <p>Senha:</p>
+      <input type="password" v-model="senha" placeholder="senha">
+      <p>Confirmar senha:</p>
+      <input type="password" v-model="confirmaSenha" placeholder="repita a senha">
+      <p>Data de nascimento:</p>
       <input type="date" v-model="data">
-      <p>endereço:</p>
-      <input type="text" v-model="endereço">
-      <P>cidade:</P>
-      <input type="string" v-model="cidade">
-      <p>estado:</p>
+      <p>Endereço:</p>
+      <input type="text" v-model="endereço" placeholder="Endereço">
+      <P>Cidade:</P>
+      <input type="string" v-model="cidade" placeholder="Cidade">
+      <p>Estado:</p>
       <select type="string" v-model="estado">
         <option>AC</option>
         <option>AL</option>
@@ -60,12 +60,12 @@ const aceitar = ref(false)
         <option>SE</option>
         <option>TO</option>
       </select>
-      <p>hobbies:</p>
-      <input type="text" v-model="hobbies">
-      <p>linguagem de Programação:</p>
-      <input type="text" v-model="linguagemProg">
-      <p>biografia:</p>
-      <input type="text" v-model="biografia">
+      <p>Hobbies:</p>
+      <input type="text" v-model="hobbies" placeholder="Hobbies">
+      <p>Linguagem de Programação:</p>
+      <input type="text" v-model="linguagemProg" placeholder="Linguagem de Programação">
+      <p>Biografia:</p>
+      <input type="text" v-model="biografia" placeholder="Biografia">
       <hr>
       <button type="submit" @click="aceitar = !aceitar">Enviar</button>
     </form>
