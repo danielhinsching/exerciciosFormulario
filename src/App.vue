@@ -68,8 +68,11 @@ const aceitar = ref(false)
       <input type="text" v-model="biografia" placeholder="Biografia">
       <hr>
       <button type="submit" @click="aceitar = !aceitar">Enviar</button>
+      <div v-if="aceitar">formulario aceito</div>
     </form>
+
   <div v-if="aceitar" id="div">
+
 <p>{{ nome }}</p>
 <p>{{ email }}</p>
 <p>{{ senha }}</p>
