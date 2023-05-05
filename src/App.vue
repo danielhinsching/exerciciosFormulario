@@ -9,29 +9,32 @@ const endereço = ref('')
 const cidade = ref('')
 const estado = ref('')
 const hobbies = ref('')
-const linguagemProg = ref('')
+const linguagemProg = ref([])
 const biografia = ref('')
+const sexo = ref('') 
+const user = ref('')
 const aceitar = ref(false)
+
 </script>
 
 <template>
     <form class="info" @submit.prevent="enviar()">
       <p>Nome:</p>
-      <input type="text" v-model="nome" minlength="3" maxlength="20" placeholder="Nome"/>
+      <input type="text" v-model="nome" minlength="3" maxlength="20" placeholder="Nome" required autocomplete="on"/>
       <p>Email:</p>
-      <input type="email" v-model="email" placeholder="Email"/>
+      <input type="email" v-model="email" placeholder="Email" required autocomplete="on"/>
       <p>Senha:</p>
-      <input type="password" v-model="senha" placeholder="senha">
+      <input type="password" v-model="senha" placeholder="senha" required>
       <p>Confirmar senha:</p>
-      <input type="password" v-model="confirmaSenha" placeholder="repita a senha">
+      <input type="password" v-model="confirmaSenha" placeholder="repita a senha" required>
       <p>Data de nascimento:</p>
-      <input type="date" v-model="data">
+      <input type="date" v-model="data" required>
       <p>Endereço:</p>
-      <input type="text" v-model="endereço" placeholder="Endereço">
+      <input type="text" v-model="endereço" placeholder="Endereço" required autocomplete="on">
       <P>Cidade:</P>
-      <input type="string" v-model="cidade" placeholder="Cidade">
+      <input type="string" v-model="cidade" placeholder="Cidade" required autocomplete="on">
       <p>Estado:</p>
-      <select type="string" v-model="estado">
+      <select type="string" v-model="estado" required>
         <option>AC</option>
         <option>AL</option>
         <option>AP</option>
@@ -61,13 +64,30 @@ const aceitar = ref(false)
         <option>TO</option>
       </select>
       <p>Hobbies:</p>
-      <input type="text" v-model="hobbies" placeholder="Hobbies">
+      <input type="text" v-model="hobbies" placeholder="Hobbies" required>
       <p>Linguagem de Programação:</p>
-      <input type="text" v-model="linguagemProg" placeholder="Linguagem de Programação">
+      <input type="checkbox" v-model="linguagemProg" value="JavaScript">
+      <label for="linguagemProg">JavaScript</label>
+      <br>
+      <input type="checkbox" v-model="linguagemProg" value="C++">
+      <label for="linguagemProg">C++</label>
+      <br>
+      <input type="checkbox" v-model="linguagemProg" value="Python">
+      <label for="linguagemProg">Python</label>
+      <br>
+      <input type="checkbox" v-model="linguagemProg" value="HTML">
+      <label for="linguagemProg">HTML</label>
+      <br>
       <p>Biografia:</p>
-      <input type="text" v-model="biografia" placeholder="Biografia">
-      <hr>
+      <input type="text" v-model="biografia" placeholder="Biografia" required>
+      <p>Sexo:</p>
+      <input type="radio" v-model="sexo" value="Masculino"> Masculino
+      <input type="radio" v-model="sexo" value="Feminino"> Feminino
+      <br>
+      <input type="file" id="avatarField" @change="handleFileUpload($event)">
+      <br>
       <button type="submit" @click="aceitar = !aceitar">Enviar</button>
+      <br>
       <div v-if="aceitar">formulario aceito</div>
     </form>
 
