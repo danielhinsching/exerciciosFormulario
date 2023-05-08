@@ -12,7 +12,16 @@ const hobbies = ref('')
 const linguagemProg = ref([])
 const biografia = ref('')
 const sexo = ref('') 
-const user = ref('')
+const user = ref({
+  avatar: null
+})
+function handleFileUpload(e) {
+  const target = e.target
+  if (target && target.files) {
+    const file = target.files[0]
+    user.value.avatar = URL.createObjectURL(file)
+  }
+}
 const aceitar = ref(false)
 
 </script>
@@ -84,7 +93,8 @@ const aceitar = ref(false)
       <input type="radio" v-model="sexo" value="Masculino"> Masculino
       <input type="radio" v-model="sexo" value="Feminino"> Feminino
       <br>
-      <input type="file" id="avatarField" @change="handleFileUpload($event)">
+      <input
+    type="file" id="avatarField" @change="handleFileUpload($event)"/>
       <br>
       <button type="submit" @click="aceitar = !aceitar">Enviar</button>
       <br>
@@ -92,7 +102,7 @@ const aceitar = ref(false)
     </form>
 
   <div v-if="aceitar" id="div">
-
+<img :src="user.avatar" />
 <p>{{ nome }}</p>
 <p>{{ email }}</p>
 <p>{{ senha }}</p>
