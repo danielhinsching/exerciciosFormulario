@@ -27,7 +27,7 @@ const aceitar = ref(false)
 </script>
 
 <template>
-    <form class="info" @submit.prevent="enviar()">
+    <form class="info" @submit.prevent="aceitar = !aceitar">
       <p>Nome:</p>
       <input type="text" v-model="nome" minlength="3" maxlength="20" placeholder="Nome" required autocomplete="on"/>
       <p>Email:</p>
@@ -90,13 +90,13 @@ const aceitar = ref(false)
       <p>Biografia:</p>
       <input type="text" v-model="biografia" placeholder="Biografia" required>
       <p>Sexo:</p>
-      <input type="radio" v-model="sexo" value="Masculino"> Masculino
-      <input type="radio" v-model="sexo" value="Feminino"> Feminino
+      <input type="radio" v-model="sexo" value="Masculino" required> Masculino
+      <input type="radio" v-model="sexo" value="Feminino" required> Feminino
       <br>
       <input
     type="file" id="avatarField" @change="handleFileUpload($event)"/>
       <br>
-      <button type="submit" @click="aceitar = !aceitar">Enviar</button>
+      <button type="submit" >Enviar</button>
       <br>
       <div v-if="aceitar">formulario aceito</div>
     </form>
