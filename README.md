@@ -1,6 +1,6 @@
 # exercicioformulario
 
-danielHinschingForms.surge.sh
+https://danielsurgeforms.surge.sh/
 
 ## Recommended IDE Setup
 
